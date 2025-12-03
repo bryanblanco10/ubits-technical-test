@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+	--color-primary: #2b324d;
+	--color-secondary: #0b0b60;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f4f7fb;
+}
+
+.swal2-modal {
+	border-radius: 1rem !important;
+	-webkit-border-radius: 1rem !important;
+	-moz-border-radius: 1rem !important;
+	-ms-border-radius: 1rem !important;
+	-o-border-radius: 1rem !important;
+}
+
+.swal2-modal .swal2-actions {
+	display: flex !important;
+	width: 100% !important;
+}
+
+.swal2-modal .swal2-actions button {
+	border-radius: 1rem !important;
+	height: 47px !important;
+	width: 40% !important;
+	font-size: 1rem !important;
+}
+
+.swal2-modal .swal2-actions button.swal2-confirm {
+	background-color: #2b324d !important;
+}
+
+.swal2-modal .swal2-actions button.swal2-cancel {
+	background-color: white !important;
+	color: #2b324d !important;
+	border: 1px solid #2b324d !important;
+}
+
+.swal2-modal .swal2-title {
+	font-size: 28px !important;
+}
+
+.swal2-modal div:where(.swal2-icon).swal2-success {
+	border-color: #2b324d !important;
+	color: #2b324d !important;
+}
+
+.swal2-modal div:where(.swal2-icon).swal2-success [class^=swal2-success-line] {
+	background-color: #2b324d !important;
+}
+
+.swal2-modal div:where(.swal2-icon).swal2-success .swal2-success-ring {
+	border: .25em solid #dabde6 !important;
+}
+
+
+.swal2-modal div:where(.swal2-icon).swal2-error {
+	border-color: #2b324d !important;
+	color: #2b324d !important;
+}
+
+.swal2-modal div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line] {
+	background-color: #2b324d !important;
+}
+
+.swal2-modal .swal2-close {
+	color: #2b324d !important;
+}
