@@ -5,30 +5,34 @@ import { useMutation } from "@tanstack/react-query";
 import { useAuthStore, useGlobalStore } from "../store";
 import { toastError } from "../utils/toast";
 import { useNavigate } from "react-router-dom";
+import { useMemo } from "react";
 
 export const useLogin = () => {
   const navigate = useNavigate();
   const { setIsLoading } = useGlobalStore();
   const { setLogin } = useAuthStore();
-  const loginUseCase = container.resolve(LoginUseCase);
+  const login = useMemo(() => container.resolve(LoginUseCase), []);
   const { mutate } = useMutation({
-    mutationFn: (user: Login) => loginUseCase.execute(user),
+    mutationFn: (user: Login) => login.execute(user),
+    onMutate: () => {
+      setIsLoading(true);
+    },
     onSuccess: (data: AuthResponse | null) => {
-      console.log("user", data);
       const result = data?.message as Message;
       setLogin(result.user, result.token);
-      navigate("/client");
-      setIsLoading(false);
+      navigate("/");
     },
     onError: () => {
       setIsLoading(false);
       toastError("Error de autenticación", "Usuario o contraseña incorrectos.");
     },
+    onSettled: () => {
+      setIsLoading(false);
+    },
     networkMode: "always",
   });
 
   const handleLogin = (user: Login) => {
-    setIsLoading(true);
     mutate(user);
   };
 

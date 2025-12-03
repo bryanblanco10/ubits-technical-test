@@ -11,12 +11,9 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: (
-          <PublicRoutes>
-            <HomePage />
-          </PublicRoutes>
-        ),
+        element: <HomePage />,
       },
+
       {
         path: "/login",
         element: (
@@ -25,23 +22,32 @@ export const router = createBrowserRouter([
           </PublicRoutes>
         ),
       },
+
+      // Rutas privadas
       {
-        path: "/",
         element: <ProtectedRoutes />,
         children: [
           {
-            path: "/client",
+            path: "/products",
             async lazy() {
-              const { ClientPage } = await import(
-                /* webpackChunkName: 'ClientPage' */ "@/presentation/views"
-              );
-              return {
-                Component: ClientPage,
-              };
+              const { ProductPage } = await import("@/presentation/views");
+              return { Component: ProductPage };
             },
           },
         ],
       },
     ],
   },
+  {
+    path: "*",
+    async lazy() {
+      const { ErrorPage } = await import(
+        /* webpackChunkName: 'ErrorPage' */ "@/presentation/views"
+      );
+      return {
+        Component: ErrorPage,
+      };
+    },
+  },
 ]);
+

@@ -1,5 +1,4 @@
-import { axios } from "@/infrastructure";
-import { AxiosInstance, AxiosRequestConfig } from "axios";
+import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 export interface HttpClient {
   get<T>(url: string, config?: AxiosRequestConfig): Promise<T>;
   post<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T>;
@@ -7,7 +6,7 @@ export interface HttpClient {
   delete<T>(url: string, config?: AxiosRequestConfig): Promise<T>;
 }
 
-export class FetchHttpClient implements HttpClient {
+export class ConfigHttpClient implements HttpClient {
   private readonly axiosInstance: AxiosInstance;
   constructor(baseURL: string) {
     this.axiosInstance = axios.create({
@@ -16,6 +15,13 @@ export class FetchHttpClient implements HttpClient {
       headers: {
         "Content-Type": "application/json",
       },
+    });
+    this.axiosInstance.interceptors.request.use((config) => {
+      const token = JSON.parse(localStorage.getItem("stateAuth") || "{}")?.state
+        ?.token;
+
+      if (token) config.headers.Authorization = `Bearer ${token}`;
+      return config;
     });
   }
 

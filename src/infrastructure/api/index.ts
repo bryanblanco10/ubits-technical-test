@@ -5,4 +5,7 @@ export const API_ROUTES: ApiPath = {
   auth: {
     login: `/api/${API_VERSION}/auth/login`,
   },
+  product: {
+    getAll: `/api/${API_VERSION}/products?page=1&pageSize=2`,
+  }
 };

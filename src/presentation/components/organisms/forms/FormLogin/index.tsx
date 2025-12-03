@@ -21,7 +21,6 @@ export const FormLogin = () => {
 
   const onSubmit: SubmitHandler<Login> = (data, e) => {
     e?.preventDefault();
-    console.log('data', data);
     handleLogin(data);
   };
 

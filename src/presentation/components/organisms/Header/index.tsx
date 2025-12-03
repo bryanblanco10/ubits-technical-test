@@ -20,8 +20,8 @@ export const Header = () => {
       {isLogin && (
         <>
           <Nav>
-            <NavLink to="/client">
-              <NavItem>Clientes</NavItem>
+            <NavLink to="/products">
+              <NavItem>Productos</NavItem>
             </NavLink>
           </Nav>
           {isAuthenticate ? (

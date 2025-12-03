@@ -1,3 +1,4 @@
 export * from "./Home";
 export * from "./Auth";
-export * from "./Client";
+export * from "./Product";
+export * from './Error404'
