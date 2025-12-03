@@ -1,0 +1,83 @@
+├── src
+│   ├── infrastructure
+│   │   ├── di
+│   │   │   └── container.ts
+│   │   │   └── index.ts
+│   │   ├── http
+│   │   │   └── authRepository.http.ts
+│   │   │   └── httpClient.ts
+│   │   │   └── index.ts
+│   │   │   └── productRepository.http.ts
+│   │   └── api
+│   │       ├── index.ts
+│   ├── presentation
+│   │   ├── components
+│   │   │   ├── atoms
+│   │   │   │   ├── BaseNotification.tsx
+│   │   │   │   ├── ButtonPrimary.tsx
+│   │   │   │   ├── CardContainer.tsx
+│   │   │   │   ├── Input.tsx
+│   │   │   │   ├── Label.tsx
+│   │   │   │   ├── MessageError.tsx
+│   │   │   │   ├── TextLabel.tsx
+│   │   │   │   └── TextValue.tsx
+│   │   │   ├── molecules
+│   │   │   │   ├── InputNumber.tsx
+│   │   │   │   ├── InputPassword.tsx
+│   │   │   │   ├── InputText.tsx
+│   │   │   │   └── ErrorNotification.tsx
+│   │   │   │   └── InfoNotification.tsx
+│   │   │   │   └── SuccessNotification.tsx
+│   │   │   │   └── WarningNotification.tsx
+│   │   │   │   └── InfoRow.tsx
+│   │   │   └── organisms
+│   │   │       ├── Header.tsx
+│   │   │       └── FormLogin.tsx
+│   │   │       └── ProductCard.tsx
+│   │   │       └── FullScreenLoader.tsx
+│   │   │       └── NotificationList.tsx
+│   │   │   └── templates
+│   │   │       ├── MainLayout.tsx
+│   │   ├── utils
+│   │   │   └── input.tsx
+│   │   │   └── toast.tsx
+│   │   ├── views
+│   │   │   ├── Auth
+│   │   │   │   ├── LoginPage.tsx
+│   │   │   ├── Error404
+│   │   │   │   ├── ErrorPage.tsx
+│   │   │   ├── Home
+│   │   │   │   ├── HomePage.tsx
+│   │   │   ├── Product
+│   │   │   │   ├── ProductPage.tsx
+│   │   └── store
+│   │       ├── auth
+│   │       │   └── index.ts
+│   │       ├── global
+│   │       │   └── index.ts
+│   │       ├── notification
+│   │       │   └── index.ts
+│   │       └── product
+│   │           └── index.ts
+│   ├── core
+│   │   ├── domain
+│   │   │   ├── entities
+│   │   │   │   └── login.ts
+│   │   │   │   └── product.ts
+│   │   │   └── models
+│   │   │   |    └── api.ts
+│   │   │   └── repositories
+│   │   │       └── auth.repository.ts
+│   │   │       └── product.repository.ts
+│   │   └── application
+│   │       └── usecases
+│   │           └── getProducts.useCase.ts
+│   │           └── login.usecase.ts
+│   └── main.tsx
+├── package.json
+├── README.md
+├── srcApp.tsx
+├── tailwind.config.js
+├── tsconfig.json
+├── vite.config.ts
+└── vitest.config.ts
